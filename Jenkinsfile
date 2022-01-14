@@ -67,7 +67,7 @@ pipeline {
         stage('Container Scan') {
           steps {
             container('docker-tools') {
-              sh "grype ${APP_NAME}"
+              sh "grype ${APP_NAME} --fail-on critical"
             }
           }
         }
