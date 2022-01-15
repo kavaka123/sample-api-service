@@ -39,6 +39,14 @@ spec:
           name: docker-sock
         - mountPath: /tmp/grypecache/
           name: grypecache
+    - name: licensefinder
+      image: licensefinder/license_finder
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: maven
+          mountPath: /root/.m2/
   volumes:
     - name: maven
       hostPath:
